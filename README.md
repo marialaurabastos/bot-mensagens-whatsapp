@@ -1,2 +1,2 @@
 # bot-mensagens-whatsapp
-Bot de mensagens automáticas no WhatsApp
+# o programa abrirá o WhatsApp Web e enviará a mensagem escolhida para os contatos da planilha
