@@ -16,23 +16,22 @@ for linha in pagina_mensagens.iter_rows(min_row=2): #faz o programa ler a partir
     telefone = linha[1].value
     print(nome)
     print(telefone)
-    #até aqui -> planilhas automatizadas   
-    
+ 
     #mensagem formatada
-    mensagem = f"Olá {nome}! Tenho um segredo para te contar... clique no link https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    mensagem = f"Olá {nome}! " #inclua a mensagem após o !
     
     link_mensagem = f"https://web.whatsapp.com/send?phone={telefone}&text={quote(mensagem)}"
     webbrowser.open(link_mensagem)
     sleep(10)
     try:
-        sleep(5)  # Espera 5 segundos antes de pressionar Enter
-        pyautogui.press('enter')  # Aciona a tecla Enter
+        sleep(5)  #espera 5 segundos antes de pressionar Enter
+        pyautogui.press('enter')  #aciona a tecla Enter
         sleep(5)
-        pyautogui.hotkey("ctrl", "w")  # Fecha a aba atual
+        pyautogui.hotkey("ctrl", "w")  #fecha a aba atual
         sleep(5)
     except Exception as e:
         print(f"Não foi possível enviar mensagem para {nome}: {e}")
-    # Para registrar erros no arquivo csv
+    #para registrar erros no arquivo csv
     with open("erros.csv", "a", newline="", encoding="utf-8") as arquivo:
         arquivo.write(f"{nome},{telefone}\n")
 
